@@ -21,7 +21,10 @@ class CursoTest {
 
 	@Test
 	void testAniadirAlumno() {
-		fail("Not yet implemented");
+		int x = c.numeroAlumnos();
+		c.aniadirAlumno(p);
+		int y = c.numeroAlumnos();
+		assertEquals(x+1,y);
 	}
 
 	@Test
