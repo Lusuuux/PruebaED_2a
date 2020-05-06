@@ -4,83 +4,69 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Curso {
-
+	
+	/**
+	 * @author Luzu
+	 * @version Definitiva (Espero)
+	 */
 	private List<Persona> listaAlumnos;
 
-	/*
-	 * @author Mikel Ruiz Luzuriaga
+	/**
 	 * 
-	 * @version Defintiva(Supongo)
+	 * @param dni
+	 * @throws Exception
 	 */
 	public void eliminarAlumno(String dni) throws Exception {
-		/**
-		 * @param String dni
-		 * @throws Exception
-		 */
-		if (dni.length() == 9) {// comprobar la longitud del dni
-			listaAlumnos.remove(new Persona(dni, "", "")); // solo hace falta el dni
-		} else {
+		if(dni.length()==9) {//comprobar la longitud del dni
+			listaAlumnos.remove(new Persona(dni, "", "")); //solo hace falta el dni
+		}else {
 			throw new Exception("El dni no tiene la longitud adecuada");
 		}
 	}
-
-	/*
-	 * Documentar y crear test unitario
+	
+	/**
+	 * 
+	 * @param p
 	 */
 	public void aniadirAlumno(Persona p) {
-		/**
-		 * @param Persona p
-		 */
 		listaAlumnos.add(p);
 	}
-
-	/*
-	 * Documentar y crear test unitario
+	
+	/**
+	 * 
+	 * @param dni
+	 * @return encontrado
 	 */
 	public Boolean estaRegistrado(String dni) {
-		/**
-		 * @param String dni
-		 * @Param int i
-		 * @Boolean encontrado
-		 * @return encontrado
-		 */
-		int i = 0;
-		Boolean encontrado = false;
-		while (!encontrado && i < listaAlumnos.size()) {
-			if (listaAlumnos.get(i).getDni().equals(dni)) {
-				encontrado = true;
+		int i =0;
+		Boolean encontrado=false;
+		while (!encontrado && i<listaAlumnos.size()) {
+			if(listaAlumnos.get(i).getDni().equals(dni)) {
+				encontrado=true;
 			}
 			i++;
 		}
 		return encontrado;
 	}
-
-	/*
-	 * Documentar y crear test unitario
+	
+	/**
+	 * Aqui hay un ArrayList 
 	 */
 	public Curso() {
-		/**
-		 * @param Aqui hay un ArrayList
-		 */
-		listaAlumnos = new ArrayList<Persona>();
+		listaAlumnos= new ArrayList<Persona>();
 	}
-
-	/*
-	 * Documentar y crear test unitario
+	
+	/**
+	 * 
+	 * @return persona
 	 */
-	public Integer numeroAlumnos() {
-		/**
-		 * @return listaAlumnos.size()
-		 */
-		return listaAlumnos.size();
-	}
-
+	public Integer numeroAlumnos() {return listaAlumnos.size();}
+	
+	
 	public void mostrarTodos() {
-		/**
-		 * @return persona
-		 */
 		for (Persona persona : listaAlumnos) {
 			System.out.println(persona);
 		}
 	}
 }
+
